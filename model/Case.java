@@ -17,10 +17,13 @@ public class Case {
 		this.previousRow = row;
 	}
 
+	
 	public void setPreviousRow(int row) {
 		previousRow = row;
 	}
 
+	
+	// retourner la ligne de la case precedente 
 	public int getPreviousRow() {
 		return previousRow;
 	}
@@ -37,10 +40,12 @@ public class Case {
 		return col;
 	}
 
+	// vérifier si deux case ont la meme position
 	public boolean Position(Case other) {
 		return row == other.row && col == other.col;
 	}
-
+        
+        //retourner une présentation de la case en string 
 	@Override
 	public String toString() {
 		if (row == previousRow) {
