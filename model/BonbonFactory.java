@@ -41,9 +41,9 @@ public class BonbonFactory implements IBonbonFactory{
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
 				if ((i + j) % 2 == 0) {
-					grid[i][j] = new BonbonModel(0);
+					grid[i][j] = new BonbonModel(iRand.nextInt(type));
 				} else {
-					grid[i][j] = new BonbonModel(1);
+					grid[i][j] = new BonbonModel(iRand.nextInt(type));
 				}
 
 			}
