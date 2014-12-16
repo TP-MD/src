@@ -39,6 +39,17 @@ public class GameTest {
 		Assert.assertTrue(cases);
 	}
 	
+	//tester la mÃ©thode select qui return false si deux bonbon n'ont pas Ã©tÃ© Ã©changÃ© 
+	@Test
+	public void testSelectFalse(){
+		Case case1 = new Case(2, 2, game.getIbonbon(1, 1));
+		Case case2 = new Case(2, 2, game.getIbonbon(3, 3));
+		Boolean cases = game.select(new Case[]{case1, case2});
+		Assert.assertFalse(cases);
+	}	
+	
+	
+	
 	//tester la méthode findsRun qui verifie s'il y a eu un echange de bonbon que ca soit 
 	//vertical ou horizental et modifie la valeur de score si c'est la cas
 	@Test
@@ -55,6 +66,59 @@ public class GameTest {
 		game.findRuns(true);
 		System.out.println(game.toString());
 		System.out.println("votre score est " + game.getScore()); 
+		
+		System.out.println("------------------------------------------------");
+
+	}
+	
+	
+	//tester la mÃ©thode collapseColumn qui par exemple dans notre cas effondre la colomne 2
+	@Test
+	public void testcollapseColumn(){
+		
+		System.out.println("------------test de la methode collapseColumn--------");
+
+		game.setIbonbon(0, 1, new BonbonModel(4));
+		game.setIbonbon(0, 2, new BonbonModel(4));
+		game.setIbonbon(0, 3, new BonbonModel(4));
+		
+		game.setIbonbon(3, 1, new BonbonModel(4));
+		game.setIbonbon(3, 2, new BonbonModel(4));
+		game.setIbonbon(3, 3, new BonbonModel(4));
+		
+		game.findRuns(true);
+		System.out.println(game.toString());
+		game.collapseColumn(2);
+		System.out.println("apres l'effondrement de la colomne 2");
+		System.out.println(game.toString()); 
+		
+		System.out.println("------------------------------------------------");
+
+	}
+	
+	//tester la mÃ©thode fillColumn qui par exemple dans notre cas rempli la colomne 2
+	@Test
+	public void testFillColumn(){
+		
+		System.out.println("------------test de la methode FillColumn--------");
+
+		
+		game.setIbonbon(0, 1, new BonbonModel(4));
+		game.setIbonbon(0, 2, new BonbonModel(4));
+		game.setIbonbon(0, 3, new BonbonModel(4));
+		
+		game.setIbonbon(3, 1, new BonbonModel(4));
+		game.setIbonbon(3, 2, new BonbonModel(4));
+		game.setIbonbon(3, 3, new BonbonModel(4));
+		
+		game.findRuns(true);
+		System.out.println(game.toString());
+		game.collapseColumn(2);
+		System.out.println("apres l'effondrement de la colomne 2");
+		System.out.println(game.toString()); 
+		game.fillColumn(2);
+		System.out.println("apres remplissage de la colomne 2");
+		System.out.println(game.toString()); 
 		
 		System.out.println("------------------------------------------------");
 
