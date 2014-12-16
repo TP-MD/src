@@ -83,9 +83,8 @@ public class GameModel implements IGameControler {
 		return false;
 	}
 
-	/*Un run est définie comme étant trois 
-	 * ou plus de bonbons adjacents 
-	 * horizontalement ou verticalement.  
+	/*tester la méthode findsRun qui verifie s'il y a eu un echange de bonbon que ca soit 
+	 *vertical ou horizental et modifie la valeur de score si c'est la cas 
 	*/
 	@Override
 	public ArrayList<Case> findRuns(boolean doMarkAndUpdateScore) {
